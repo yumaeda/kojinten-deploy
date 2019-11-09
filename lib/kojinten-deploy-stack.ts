@@ -14,15 +14,12 @@ export class KojintenDeployStack extends Stack {
             })
         })
 
-        // ECR Image
-        const image = ContainerImage.fromRegistry('tiangolo/uwsgi-nginx-flask')
-
         // Create a load-balanced Fargate service and make it public
         new ApplicationLoadBalancedFargateService(this, 'KojintenApiService', {
             cluster,
             cpu: 256,
             desiredCount: 1,
-            image,
+            taskImageOptions: { image: ContainerImage.fromRegistry("yumaeda/kojinten") },
             memoryLimitMiB: 512,
             publicLoadBalancer: true
         })
