@@ -7,24 +7,29 @@
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
-1. Install Node.js
+1. Sync the server time
+```bash
+sudo ntpdate time.apple.com
+```
+
+2. Install Node.js
 https://nodejs.org/en/
 
-2. Install aws-cdk
+3. Install aws-cdk
 ```bash
 npm install -g aws-cdk
 ```
 
-3. Initialize CDK App
+4. Initialize CDK App
 ```bash
 mkdir HelloWorld
 cd HelloWorld
 cdk init --language typescript
 ```
 
-4. Add the Amazon EC2 and Amazon ECS Packages
+5. Add the Amazon EC2 and Amazon ECS Packages
 ```bash
-npm install @aws-cdk/aws-ec2 @aws-cdk/aws-ecs @aws-cdk/aws-ecs-patterns
+npm install @aws-cdk/aws-ec2 @aws-cdk/aws-ecs @aws-cdk/aws-ecs-patterns @aws-cdk/aws-rds
 ```
 
 5. Build the app and confirm that it creates an empty stack.
