@@ -34,7 +34,6 @@ export class KojintenDeployStack extends Stack {
             instanceClass: InstanceType.of(InstanceClass.BURSTABLE2, InstanceSize.SMALL),
             instanceIdentifier: 'kojinten',
             masterUsername: 'admin',
-            masterUserPassword: new SecretValue('P@ssw0rd'),
             vpc
         });
 
