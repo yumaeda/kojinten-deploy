@@ -1,4 +1,4 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core'
+import { Construct, RemovalPolicy, SecretValue, Stack, StackProps } from '@aws-cdk/core'
 import { Vpc, InstanceType, InstanceClass, InstanceSize } from '@aws-cdk/aws-ec2'
 import { Cluster, ContainerImage } from '@aws-cdk/aws-ecs'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
@@ -27,10 +27,14 @@ export class KojintenDeployStack extends Stack {
         })
 
         // Create a DB insttance.
-        const dbInstance = new DatabaseInstance(this, 'kojinten-db', {
+        const dbInstance = new DatabaseInstance(this, 'RDS', {
+            deletionProtection: false,
+            removalPolicy: RemovalPolicy.DESTROY,
             engine: DatabaseInstanceEngine.MARIADB,
             instanceClass: InstanceType.of(InstanceClass.BURSTABLE2, InstanceSize.SMALL),
+            instanceIdentifier: 'kojinten',
             masterUsername: 'admin',
+            masterUserPassword: new SecretValue('P@ssw0rd'),
             vpc
         });
 
