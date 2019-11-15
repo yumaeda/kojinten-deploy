@@ -1,9 +1,9 @@
 import { Construct, RemovalPolicy, Stack, StackProps } from '@aws-cdk/core'
-import { InstanceClass, InstanceSize, InstanceType, SubnetType, Vpc } from '@aws-cdk/aws-ec2'
+import { InstanceClass, InstanceSize, InstanceType, SubnetType, IVpc } from '@aws-cdk/aws-ec2'
 import { DatabaseInstance, DatabaseInstanceEngine } from '@aws-cdk/aws-rds'
 
 export class RDSStack extends Stack {
-    constructor(scope: Construct, id: string, vpc: Vpc, props?: StackProps) {
+    constructor(scope: Construct, id: string, vpc: IVpc, props?: StackProps) {
         super(scope, id, props)
 
         // Create a DB insttance.

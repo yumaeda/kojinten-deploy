@@ -1,8 +1,8 @@
 {
-  "name": "kojinten-deploy",
+  "name": "kojinten",
   "version": "0.1.0",
   "bin": {
-    "kojinten-deploy": "bin/kojinten-deploy.js"
+    "kojinten": "bin/kojinten.js"
   },
   "scripts": {
     "build": "tsc",
