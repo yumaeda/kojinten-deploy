@@ -3,11 +3,13 @@ import { InstanceClass, InstanceSize, InstanceType, SubnetType, IVpc } from '@aw
 import { DatabaseInstanceFromSnapshot, DatabaseInstanceEngine } from '@aws-cdk/aws-rds'
 
 export class RDSStack extends Stack {
+    readonly dbInstance: DatabaseInstanceFromSnapshot
+
     constructor(scope: Construct, id: string, vpc: IVpc, props?: StackProps) {
         super(scope, id, props)
 
         // Create a DB insttance.
-        const dbInstance = new DatabaseInstanceFromSnapshot(this, 'RDS', {
+        this.dbInstance = new DatabaseInstanceFromSnapshot(this, 'RDS', {
             deletionProtection: false,
             engine: DatabaseInstanceEngine.MARIADB,
             generateMasterUserPassword: true,
@@ -21,6 +23,6 @@ export class RDSStack extends Stack {
         });
 
         // Allow connections on default port from any IPV4
-        dbInstance.connections.allowDefaultPortFromAnyIpv4()
+        this.dbInstance.connections.allowDefaultPortFromAnyIpv4()
     }
 }
