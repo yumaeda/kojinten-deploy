@@ -71,4 +71,4 @@ cdk destroy
 &nbsp;
 
 # Reference
-https://docs.aws.amazon.com/en_pv/cdk/latest/guide/ecs_example.html
+https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-secretsmanager/test/test.secret.ts
