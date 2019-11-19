@@ -47,9 +47,9 @@ cd HelloWorld
 cdk init --language typescript
 ```
 
-### 3. Add the Amazon EC2 and Amazon ECS Packages
+### 3. Install Modules.
 ```bash
-npm install @aws-cdk/aws-ec2 @aws-cdk/aws-ecs @aws-cdk/aws-ecs-patterns @aws-cdk/aws-rds
+npm install
 ```
 
 ### 4. Build the app and confirm that it creates an empty stack.
@@ -60,12 +60,12 @@ cdk synth
 
 ### 5. Deploy
 ```bash
-cdk deploy
+cdk deploy <Stack Name>
 ```
 
-### 6. Destroy
+### 6. Destroy all the stacks.
 ```bash
-cdk destroy
+cdk destroy VpcStack
 ```
 
 &nbsp;
