@@ -3,7 +3,7 @@ import { Cluster, ContainerImage } from '@aws-cdk/aws-ecs'
 import { ApplicationLoadBalancedFargateService } from '@aws-cdk/aws-ecs-patterns'
 import { ILoadBalancerV2 } from '@aws-cdk/aws-elasticloadbalancingv2'
 
-export class ALBFargateStack extends Stack {
+export class APIFargateServiceStack extends Stack {
     readonly loadBalancer: ILoadBalancerV2
 
     constructor(scope: Construct, id: string, cluster: Cluster, props?: StackProps) {
