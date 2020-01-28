@@ -14,9 +14,11 @@ const vpcStack = new VpcStack(app, 'VpcStack')
 const vpc = vpcStack.vpc
 
 const clusterStack = new ClusterStack(app, 'ClusterStack', vpc)
-const apiFargateServiceStack = new APIFargateServiceStack(app, 'APIFargateServiceStack', clusterStack.cluster)
 const frontFargateServiceStack = new FrontFargateServiceStack(app, 'FrontFargateServiceStack', clusterStack.cluster)
-new Route53Stack(app, 'Route53Stack', frontFargateServiceStack.loadBalancer)
+const apiFargateServiceStack = new APIFargateServiceStack(app, 'APIFargateServiceStack', clusterStack.cluster)
+
+new Route53Stack(app, 'FrontServiceAliasStack', 'tokyo-hideaway.com', frontFargateServiceStack.loadBalancer)
+new Route53Stack(app, 'ApiServiceAliasStack', 'api.tokyo-hideaway.com', apiFargateServiceStack.loadBalancer)
 
 const rdsStack = new RDSStack(app, 'RDSStack', vpc)
 // new SecretsManagerStack(app, 'SecretsManagerStack', rdsStack.dbInstance.instanceIdentifier)
