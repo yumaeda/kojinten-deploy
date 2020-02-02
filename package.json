@@ -29,9 +29,11 @@
     "@aws-cdk/aws-ec2": "^1.22.0",
     "@aws-cdk/aws-ecs": "^1.22.0",
     "@aws-cdk/aws-ecs-patterns": "^1.22.0",
+    "@aws-cdk/aws-iam": "^1.22.0",
     "@aws-cdk/aws-rds": "^1.22.0",
     "@aws-cdk/aws-route53": "^1.22.0",
     "@aws-cdk/aws-route53-targets": "^1.22.0",
+    "@aws-cdk/aws-s3": "^1.22.0",
     "@aws-cdk/aws-secretsmanager": "^1.15.0",
     "source-map-support": "^0.5.16"
   }

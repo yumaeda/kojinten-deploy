@@ -6,10 +6,12 @@ import { ClusterStack } from '../lib/cluster-stack'
 import { RDSStack } from '../lib/rds-stack'
 import { Route53Stack } from '../lib/route53-stack'
 import { VpcStack } from '../lib/vpc-stack'
+import { S3Stack } from '../lib/s3-stack'
 import { SecretsManagerStack } from '../lib/secrets-manager-stack'
 
 const app = new App()
 
+const s3Stack = new S3Stack(app, 'S3Stack')
 const vpcStack = new VpcStack(app, 'VpcStack')
 const vpc = vpcStack.vpc
 
