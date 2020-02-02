@@ -2,6 +2,7 @@ import 'source-map-support/register'
 import { App } from '@aws-cdk/core'
 import { APIFargateServiceStack } from '../lib/api-fargate-service-stack'
 import { FrontFargateServiceStack } from '../lib/front-fargate-service-stack'
+import { CloudFrontStack } from '../lib/cloud-front-stack'
 import { ClusterStack } from '../lib/cluster-stack'
 import { RDSStack } from '../lib/rds-stack'
 import { Route53Stack } from '../lib/route53-stack'
@@ -12,6 +13,7 @@ import { SecretsManagerStack } from '../lib/secrets-manager-stack'
 const app = new App()
 
 const s3Stack = new S3Stack(app, 'S3Stack')
+const cloudFrontStack = new CloudFrontStack(app, 'CloudFrontStack', s3Stack.bucket)
 const vpcStack = new VpcStack(app, 'VpcStack')
 const vpc = vpcStack.vpc
 
