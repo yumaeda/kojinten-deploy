@@ -9,7 +9,7 @@ export class S3Stack extends Stack {
         super(scope, id, props)
 
         this.bucket = new Bucket(this, 'S3Bucket', {
-            bucketName: 'kojinten',
+            bucketName: 'cdn.tokyo-hideaway.com',
             removalPolicy: RemovalPolicy.DESTROY
         })
         this.bucket.addToResourcePolicy(new PolicyStatement({
