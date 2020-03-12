@@ -1,4 +1,4 @@
-# Kojinten CDK
+# Tokyo Hideaway Deployment
 
 ## Sync the server time
 
